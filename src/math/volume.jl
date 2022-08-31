@@ -176,3 +176,77 @@ function vol_circular_cylinder(radius, height)
     end
     return pi * radius^2 * height
 end
+
+"""
+vol_sqr_rec_pyramid(length,width,height)
+
+Compute the volume of a square/rectangle pyramid.
+
+# Examples
+
+```julia
+vol_sqr_rec_pyramid(1,2,3)  # returns 2.0
+vol_sqr_rec_pyramid(2,3,4)  # returns 8.0
+vol_sqr_rec_pyramid(-1,-2,-3) # returns DomainError
+```
+"""
+function vol_sqr_rec_pyramid(length,width,height)
+    if length<0||width<0||height<0
+        throw(
+            DomainError(
+                "vol_sqr_rec_pyramid() only works for non negative values.",
+            ),
+        )
+    end
+    return (1/3)*length*width*height
+end
+
+
+"""
+vol_ellipsoid(axes1,axes2,axes3)
+
+Compute the volume of a ellipsoid.
+
+# Examples
+
+```julia
+vol_ellipsoid(1,2,3)  # returns 25.132741228718345
+vol_ellipsoid(2,3,4)  # returns 100.53096491487338
+vol_ellipsoid(-1,-2,-3) # returns DomainError
+```
+"""
+function vol_ellipsoid(axes1,axes2,axes3)
+    if axes1<0||axes2<0||axes3<0
+        throw(
+            DomainError(
+                "vol_ellipsoid() only works for non negative values.",
+            ),
+        )
+    end
+    return 4 / 3 * pi * (axes1*axes2*axes3)
+end
+
+
+"""
+vol_tetrahedron(length)
+
+Compute the volume of a tetrahedron.
+
+# Examples
+
+```julia
+vol_tetrahedron(5)  # returns 14.731391274719739
+vol_tetrahedron(10)  # returns 117.85113019775791
+vol_tetrahedron(-5) # returns DomainError
+```
+"""
+function vol_tetrahedron(length)
+    if length<0
+        throw(
+            DomainError("vol_tetrahedron() only works for non negative values.",
+            ),
+        )
+    end
+    return length^3 / (6*sqrt(2))
+end
+
