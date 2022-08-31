@@ -385,6 +385,8 @@ Finds area of the circular_sector
 
 julia
 area_circle(20,145) # returns 506.1454830783556
+area_circle(20,-150) # returns DomainError
+area_circle(30,-270) # returns DomainError
 area_circle(-1,-50) # returns DomainError
 
 """
