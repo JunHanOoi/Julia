@@ -376,3 +376,21 @@ function area_polygon(coords::Vector{Tuple{T,N}}) where {T,N<:Real}
     end
     return abs(res) / 2
 end
+"""
+    area_circular_sector(radius,angle)
+
+Finds area of the circular_sector
+
+# Example
+
+julia
+area_circle(20,145) # returns 506.1454830783556
+area_circle(-1,-50) # returns DomainError
+
+"""
+function area_circular_sector(radius,angle)
+    if (radius < 0 || angle < 0)
+        throw(DomainError("area_circular_sector() only accepts non-negative values"))
+    end
+    return (π * radius^2)*(angle/360)
+end
