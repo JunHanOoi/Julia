@@ -21,6 +21,8 @@ length_conversion(1, "yards", "FEET") returns 3.000000096, intead of 3.
 
 # Lookup table that returns conversion of 1 unit of type to meters
 METER_CONVERSION = Dict{String,Float64}(
+    "nm" => 0.000000001,
+    "um" => 0.000001,
     "mm" => 0.001,
     "cm" => 0.01,
     "m" => 1,
@@ -29,10 +31,13 @@ METER_CONVERSION = Dict{String,Float64}(
     "ft" => 0.3048,
     "yd" => 0.9144,
     "mi" => 1609.34,
+    "ly" => 9460730472580044,
 )
 
 # Lookup table that returns the conversion of 1 meter to type
 TYPE_CONVERSION = Dict{String,Float64}(
+    "nm" => 1000000000,
+    "um" => 1000000,
     "mm" => 1000,
     "cm" => 100,
     "m" => 1,
@@ -41,9 +46,14 @@ TYPE_CONVERSION = Dict{String,Float64}(
     "ft" => 3.28084,
     "yd" => 1.09361,
     "mi" => 0.000621371,
+    "ly" => 1.057000834E-16,
 )
 
 NAME_CONVERSION = Dict{String,String}(
+    "nanometre" => "nm",
+    "nanometres" => "nm",
+    "micrometre" => "um",
+    "micrometres" => "um",
     "millimeter" => "mm",
     "millimeters" => "mm",
     "centimeter" => "cm",
@@ -60,6 +70,8 @@ NAME_CONVERSION = Dict{String,String}(
     "yards" => "yd",
     "mile" => "mi",
     "miles" => "mi",
+    "lightyear" => "ly",
+    "lightyears" => "ly",
 )
 
 function normalize_type(type)
