@@ -18,7 +18,6 @@ length_conversion(1, "yards", "FEET") returns 3.000000096, intead of 3.
 
 # Contributed by:- [Fernanda Kawasaki](https://github.com/fernandakawasaki)
 """
-
 # Lookup table that returns conversion of 1 unit of type to meters
 METER_CONVERSION = Dict{String,Float64}(
     "nm" => 0.000000001,
